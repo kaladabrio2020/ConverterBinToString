@@ -71,7 +71,7 @@ def main(texto):#Transformar a palavras em lista de lista com letras
     return resultado
 
 
-def transformando_numero(lista):#Transforma cada letra em numero 
+def TransformandoNumero(lista):#Transforma cada letra em numero 
     new_values = list()
 
     for i in range(len(lista)):
@@ -109,7 +109,7 @@ def transformando_numero(lista):#Transforma cada letra em numero
 
 
 
-def transformando_binaro(lista):#Cria a frase em binario
+def TransformandoBinario(lista):#Cria a frase em binario
     new_values = list()
 
     for i in range(len(lista)):
@@ -121,13 +121,13 @@ def transformando_binaro(lista):#Cria a frase em binario
             if dado == None:
                 new_list.append([])
             else:
-                binario = transformado_binaro(dado)
+                binario = TransformadoBinario(dado)
                 new_list.append(binario)
         new_values.append(new_list)
     
     return new_values
 
-def transformado_binaro(valor):# Transforma em binario
+def TransformadoBinario(valor):# Transforma em binario
 
     new_values = list()
     for i in range(len(valor)):

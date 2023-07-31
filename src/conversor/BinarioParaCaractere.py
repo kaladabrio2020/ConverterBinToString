@@ -1,5 +1,5 @@
 from typing import BinaryIO
-from conversor.CaractereParaBinario import transformado_binaro
+from src.conversor.CaractereParaBinario import TransformandoBinario
 
 
 LetrasMaiusculas = [
@@ -70,14 +70,14 @@ def main(binario):#Transformar a palavras em lista de lista com letras
             new_lis.append(letras)
         lista_r.append(new_lis)  
     
-    valor = transformando_numero(lista_r)
-    valor_2 = transformando_letra(valor)
-    return valor_2
+    valor1 = TransformandoNumero(lista_r)
+    valor2 = TransformandoLetra(valor1)
+    return valor2
 
 
 
 
-def transformando_numero(lista_r):
+def TransformandoNumero(lista_r):
     valor = list()
     for i in range(len(lista_r)):
         lista = list()
@@ -108,7 +108,7 @@ def numero(x):
     return lista_valor
 
 
-def transformando_letra(numeros):
+def TransformandoLetra(numeros):
     ListaLetras = list()
     for e in range(len(numeros)):
         ListaNumeros = numeros[e]
