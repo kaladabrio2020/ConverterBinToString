@@ -3,8 +3,7 @@ import sys
 import tkinter     as tk
 import tkinter.ttk as ttk
 import src.janelas.BinarioParaCaractere as BinToChar
-#import janelas.BinarioParaCaractere as BinToChar
-
+import src.janelas.CaractereParaBinario as CharToBin
 
 class Main:
     
@@ -15,7 +14,7 @@ class Main:
         self.master.tk.call('source','static/Azure-ttk-theme-main/azure.tcl')
         self.master.tk.call('set_theme','dark')
         self.master.protocol("WM_DELETE_WINDOW", self.exit)
-        self.master.geometry(f'+500+280')
+        self.master.geometry(f'+600+300')
 
         self.Menu()
 
@@ -27,7 +26,7 @@ class Main:
             ).grid(row=0,column=0,sticky="nsew",padx=10,pady=5)
         
         ttk.Button(
-            FrameMenu,text = 'Converter Caracter'
+            FrameMenu,text = 'Converter Caracter',command = self.ConverterCaracter
             ).grid(row=1,column=0,sticky="nsew",padx=10,pady=5)
 
         FrameMenu.pack()
@@ -37,8 +36,7 @@ class Main:
             ).pack(pady=5)
 
     def ConverterBinario(self) :BinToChar.BinarioParaCaractere(self.master)
-    def ConverterCaracter(self):
-        pass
+    def ConverterCaracter(self):CharToBin.CaractereParaBinario(self.master)
     def exit(self):  sys.exit()
     def window(self):return self.master
 

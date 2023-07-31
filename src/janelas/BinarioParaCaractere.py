@@ -11,10 +11,12 @@ convertido : oi , ola'
 
 class BinarioParaCaractere:
     Binario = None
+    Back    = None
     def __init__(self,master):
-        master.withdraw()
+        self.Back = master
+        self.Back.withdraw()
         self.master = tk.Toplevel()
-        self.master.title('BinToChar')
+        self.master.title('Binario para Caracteres')
         self.master.protocol("WM_DELETE_WINDOW", self.exit)
         self.master.geometry(f'+300+150')
         self.InputConversor()
@@ -23,6 +25,7 @@ class BinarioParaCaractere:
     def InputConversor(self):
         FrameImage = ttk.Frame(self.master)
         FrameInput = ttk.Frame(self.master)
+        FrameButto = ttk.Frame(FrameInput)
 
         image   = Image.open(r"static/img/Binario.png")
         display = ImageTk.PhotoImage(image)
@@ -38,15 +41,23 @@ class BinarioParaCaractere:
         self.Binario.pack(padx=10)
         
         ttk.Button(
-            FrameInput,text = 'Converter',
+            FrameButto,text = 'Converter',
             command = self.Convertendo
-        ).pack()
-        
+        ).grid(row=0,column=0,padx=5)
+
+        ttk.Button(
+            FrameButto,text = 'Voltar',
+            command = self.back
+        ).grid(row=0,column=1,padx=5)
+
+        FrameButto.pack()
         FrameImage.grid(row=0,column=0)
         FrameInput.grid(row=0,column=1)
 
-    def exit(self):     sys.exit()
-
+    def exit(self):sys.exit()
+    def back(self):
+        self.master.withdraw()
+        self.Back.deiconify()
     def Exemplo(self):
         exemplo = tk.Toplevel()
         exemplo.title('Exemplo')
@@ -55,7 +66,6 @@ class BinarioParaCaractere:
         Texto.pack()
     
     def Convertendo(self):
-        print(self.Binario.get("1.0", tk.END))
         ListaPalavras = BinToChar.main(self.Binario.get('1.0',tk.END))
         TextoResult   = Con.string(ListaPalavras)
 
@@ -64,5 +74,4 @@ class BinarioParaCaractere:
         Texto = tk.Text(convertido,width=40,height=10)
         Texto.insert('0.1',chars=TextoResult)
         Texto.pack()  
-        pass
         

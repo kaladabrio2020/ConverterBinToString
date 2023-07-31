@@ -66,8 +66,8 @@ def main(texto):#Transformar a palavras em lista de lista com letras
             new_lis.append(separar)
         lista_r.append(new_lis)   
 
-    valor    = transformando_numero(lista_r)
-    resultado = transformando_binaro(valor)
+    valor     = TransformandoNumero(lista_r)
+    resultado = TransformandoBinario(valor)
     return resultado
 
 
