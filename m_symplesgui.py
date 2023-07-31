@@ -6,8 +6,8 @@ def menu():
 
     sg.theme("DarkBlue2")
     parte_1 = [
-        [sg.Checkbox(" Frase ====> Binario ")],
-        [sg.Checkbox(" Binario ==> Frase ")],
+        [sg.Checkbox(" Frase ====> Binario ",key='opcaoFB')],
+        [sg.Checkbox(" Binario ==> Frase "  ,key='opcaoBF')],
     ]
 
     layout = [
@@ -42,7 +42,7 @@ def frase_bini():
 
 def bin_frase():
     sg.theme("DarkBlue2")
-    collun =  [  [sg.Image(r'C:\Users\mateu\OneDrive\Python\PySimplesGUI-2\Binario.gif')] ]
+    collun =  [  [sg.Image(r'Binario.gif')] ]
 
     parte_2 = [  [sg.Column(collun),sg.Multiline(key="Binario",size=(50,30))]   ]
 

@@ -1,20 +1,20 @@
-
 from typing import BinaryIO
 from M_Frase_Binario import transformado_binaro
 
 
-letras_maiu =[
-'A','B','C','D','E','F','G',
-"H","I","J","K","L",'M','N',
-"O","P","Q","R","S","T","U",
-"V","W","X","Y","Z"]
-numero_maiu=[
-65,66,67,68,69,70,71,
-72,73,74,75,76,77,78,
-79,80,81,82,83,84,85,
-86,87,88,89,90]
+LetrasMaiusculas = [
+    'A','B','C','D','E','F','G',
+    "H","I","J","K","L",'M','N',
+    "O","P","Q","R","S","T","U",
+    "V","W","X","Y","Z"
+]
 
-
+NumerosLetrasMaiusculas = [
+    65,66,67,68,69,70,71,
+    72,73,74,75,76,77,78,
+    79,80,81,82,83,84,85,
+    86,87,88,89,90
+]
 
 
 letras_minu=[
@@ -36,10 +36,11 @@ caracteres_sinais=[
 "(", ")", "*", "+", ",", "-", ".", "/",
 ":",";","<","=",">","?","@"]
 
-numero_caractere=[
-32,33,34,35,36,37,38,39,
-40,41,42,43,44,45,46,47,
-58,59,60,61,62,63,64]
+NumeroDoCaracter = [
+    32,33,34,35,36,37,38,39,
+    40,41,42,43,44,45,46,47,
+    58,59,60,61,62,63,64
+]
 
 
 
@@ -125,21 +126,21 @@ def letrando(lista):
     for i in range(len(lista)):
         numeros = lista[i]
 
-        if numeros in numero_maiu:
-            x = numero_maiu.index(numeros)
-            letras.append(letras_maiu[x])
+        if numeros in NumerosLetrasMaiusculas:
+            indice = NumerosLetrasMaiusculas.index(numeros)
+            letras.append(NumerosLetrasMaiusculas[indice])
 
         elif numeros in numero_minu:
-            x = numero_minu.index(numeros)
-            letras.append(letras_minu[x])
+            indice = numero_minu.index(numeros)
+            letras.append(letras_minu[indice])
 
-        elif numeros in numero_caractere:
-            x = numero_caractere.index(numeros)
-            letras.append(caracteres_sinais[x])
+        elif numeros in NumeroDoCaracter:
+            indice = NumeroDoCaracter.index(numeros)
+            letras.append(caracteres_sinais[indice])
 
         elif numeros in numero_carac_num:
-            x = numero_carac_num.index(numeros)
-            letras.append(caracteres_numerica[x])
+            indice = numero_carac_num.index(numeros)
+            letras.append(caracteres_numerica[indice])
         else:
             letras.append('0')
     return letras  

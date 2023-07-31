@@ -10,26 +10,22 @@ import M_Binario_Frase as bin_fra
 
 def main():
 
-    jan_1 = p1.menu()
-    evento_1,valor_1 = jan_1.read()
+    janela = p1.menu()
+    evento ,valor = janela.read()
 
     while True:
-        jan_1.hide()
-        if evento_1 == "Cancel" or evento_1 ==sg.WIN_CLOSED:
-            jan_1.close()
-            break
+        janela.hide()
 
-        if evento_1 == "Ok":
-            if valor_1.count(False) > 2:
-                return main()
-            if valor_1.count(True) > 1:
-                return main()
-            
-            if valor_1[0] == True:
-                frase()
-            
-            if valor_1[1] == True:
-                binario()
+        if evento == "Cancel" or evento ==sg.WIN_CLOSED: break
+
+        ListaOpcao = list(valor.values())
+
+        if evento == "Ok":
+            if   ListaOpcao.count(False) > 2:return main()
+            elif ListaOpcao.count(True)  > 1:return main()
+
+            if ListaOpcao[0] == True: frase()
+            else:                     binario()
     sys.exit()
 
     
@@ -38,38 +34,38 @@ def main():
 
 def frase():
 
-    jan_2 = p1.frase_bini()
-    evento_2 , valor_2 = jan_2.read()
+    janela = p1.frase_bini()
+    evento , valor = janela.read()
 
     while True:
-        if evento_2 == "Ok":
-            jan_2.close()
-            texto = valor_2["Frase"]
+        if evento == "Ok":
+            janela.close()
+            texto = valor["Frase"]
             tex_lis = texto.replace('\n','   (,)   ')
             lista_b = fra_bin.main(texto)
             valores = atx.string(lista_b)
 
-            jan_3 = p1.txt(tex_lis,valores)
-            evento_3,valor_3 = jan_3.read()
+            janela_3 = p1.txt(tex_lis,valores)
+            evento_3,valor_3 = janela_3.read()
             if evento_3 == "Ok":
-                jan_2.hide()
+                janela.hide()
                 return main()
             
             if evento_3 =='Voltar':
-                jan_3.hide()
+                janela_3.hide()
                 return frase()
             
             if evento_3 == sg.WIN_CLOSED:
-                jan_3.close()
+                janela_3.close()
                 sys.exit()
 
 
-        if evento_2 == "Voltar":
-            jan_2.hide()
+        if evento == "Voltar":
+            janela.hide()
             return main()
         
-        if evento_2 == sg.WIN_CLOSED:
-            jan_2.close()
+        if evento == sg.WIN_CLOSED:
+            janela.close()
             sys.exit()
 
 
@@ -83,38 +79,38 @@ def frase():
 
 
 def binario():
-    jan_2 = p1.bin_frase()
-    evento_3 , valor_3 = jan_2.read()
+    janela = p1.bin_frase()
+    evento_3 , valor_3 = janela.read()
 
     while True:
         if evento_3 == "Ok":
-            jan_2.hide()
+            janela.hide()
             binario = valor_3['Binario']
             lista_letras = bin_fra.main(binario)
-            print(lista_letras)
+         
             string_palara = atx.bin(lista_letras)
 
-            jan_3 = p1.bin(binario,string_palara)
-            evento_4,valor_4 = jan_3.read()
+            janela_3 = p1.bin(binario,string_palara)
+            evento_4,valor_4 = janela_3.read()
             if evento_4 == 'Ok':
-                jan_3.hide()
+                janela_3.hide()
                 return main()
             
             if evento_4 == 'Voltar':
-                jan_3.hide()
+                janela_3.hide()
                 return binario()
             
             if evento_4 == sg.WIN_CLOSED:
-                jan_3.hide()
+                janela_3.hide()
                 sys.exit()
     
 
         if evento_3 == "Voltar":
-            jan_2.hide()
+            janela.hide()
             return main()
         
         if evento_3 == sg.WIN_CLOSED:
-            jan_2.close()
+            janela.close()
             sys.exit()
 
 

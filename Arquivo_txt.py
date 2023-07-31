@@ -1,4 +1,3 @@
-
 def string(binario):
     texto = ''
     for i in range(len(binario)):
