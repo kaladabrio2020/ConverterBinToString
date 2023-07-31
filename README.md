@@ -4,7 +4,12 @@
 
 
 # Conversor de Caracter para binario e vice-versa
-Atividade feito nas ferias no inicio da faculdade (para melhorar a programar em python), e nesse ano 2023 foi atualizado.
+Atividade feito nas ferias no inicio da faculdade (para melhorar a programar em python), e nesse ano(2023) foi atualizado.
 * Codigo mais limpo
 * Interface mais bonita 
 * Ajeitando as pastas
+
+# Ferramentas 
+[![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](python.com)
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
