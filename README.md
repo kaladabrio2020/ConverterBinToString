@@ -1,3 +1,5 @@
-# Binario_frase_numeros
-
- Utilizando a biblioteca pysimplesgui nesse projeto tem como objetivo transformar letras em binario ascii , assim como, binario ascii em caracteres , palavras entre outros .
+# Conversor de Caracter para binario e vice-versa
+Atividade feito nas ferias no inicio da faculdade (para melhorar a programar em python), e nesse ano 2023 foi atualizado.
+* Deixando o codigo mais limpo
+* Interface mais bonita 
+* Ajeitando as pastas
