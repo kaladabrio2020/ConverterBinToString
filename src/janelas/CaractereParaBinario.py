@@ -16,6 +16,8 @@ convertido : oi , ola'
 class CaractereParaBinario:
     Caracteres = None
     Back       = None
+    convertido =  None
+
 
     def __init__(self,master):
         self.Back = master
@@ -36,30 +38,40 @@ class CaractereParaBinario:
         
         ttk.Button(
             FrameButto,text = 'Converter',
-            command = self.Convertendo
+            command = self.Convertendo,
+            style   = "Accent.TButton"
         ).grid(row=0,column=0,padx=5)
 
         ttk.Button(
             FrameButto,text = 'Voltar',
-            command = self.back
+            command = self.back,
+            style   = "Accent.TButton"
         ).grid(row=0,column=1,padx=5)
 
         FrameButto.pack()
         FrameInput.grid(row=0,column=1)
 
-    def exit(self):sys.exit()
+    def exit(self):
+        sys.exit()
+
     def back(self):
-        self.master.withdraw()
-        self.Back.deiconify()
+        try:
+            self.convertido.withdraw()
+            self.master.withdraw()
+            self.Back.deiconify()
+
+        except Exception:
+            self.master.withdraw()
+            self.Back.deiconify()
 
     
     def Convertendo(self):
         ListaPalavras = CharToBin.main(self.Caracteres.get('1.0',tk.END))
-        TextoResult   = Con.string(ListaPalavras)
+        TextoResult   = Con.bin(ListaPalavras)
 
-        convertido = tk.Toplevel()
-        convertido.title('Resultado')
-        Texto = tk.Text(convertido,width=40,height=10)
+        self.convertido = tk.Toplevel()
+        self.convertido.title('Resultado')
+        Texto = tk.Text(self.convertido,width=40,height=10)
         Texto.insert('0.1',chars=TextoResult)
         Texto.pack()  
         

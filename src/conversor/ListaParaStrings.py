@@ -7,25 +7,26 @@ def string(binario):
         
         for e in range(len(x)):
             string = x[e]
-            string = " , ".join(string)
+            string = "".join(string)
 
             if not(e == len(x)-1):
-                string = string + "  ==  "
+                string = string + " "
             texto = texto + string 
         texto += "\n\n"
     return texto
 
 
 def bin(binario):
-    texto = ''
+    texto =' '
     for i in range(len(binario)):
         x = binario[i]
         if x == [[]]:
             texto = texto + '\n'
         
         for e in range(len(x)):
+            
             string = x[e]
-            string = "".join(string)
-
-            texto = texto + string + ' '
+            string = " ".join(string)
+            texto += string + '\n'
+    
     return texto

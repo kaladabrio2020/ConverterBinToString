@@ -22,11 +22,11 @@ class Main:
         FrameMenu = ttk.Frame(self.master )
       
         ttk.Button(
-            FrameMenu,text = 'Converter Binario',command = self.ConverterBinario,
+            FrameMenu,text = 'Converter Binario',command = self.ConverterBinario, style="Accent.TButton"
             ).grid(row=0,column=0,sticky="nsew",padx=10,pady=5)
         
         ttk.Button(
-            FrameMenu,text = 'Converter Caracter',command = self.ConverterCaracter
+            FrameMenu,text = 'Converter Caracter',command = self.ConverterCaracter, style="Accent.TButton"
             ).grid(row=1,column=0,sticky="nsew",padx=10,pady=5)
 
         FrameMenu.pack()

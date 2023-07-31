@@ -10,8 +10,10 @@ binario : 01101111 01101001 - 00100000 - 00101100 00100000 01101111 01101100 011
 convertido : oi , ola'
 
 class BinarioParaCaractere:
-    Binario = None
-    Back    = None
+    Binario    = None
+    Back       = None
+    convertido = None
+
     def __init__(self,master):
         self.Back = master
         self.Back.withdraw()
@@ -34,7 +36,7 @@ class BinarioParaCaractere:
         img.pack()
 
         ttk.Button(
-            FrameImage,text = 'Exemplo',command=self.Exemplo
+            FrameImage,text = 'Exemplo',command=self.Exemplo,style="Accent.TButton"
         ).pack()
 
         self.Binario = tk.Text(FrameInput, width=45, height=28)
@@ -42,36 +44,49 @@ class BinarioParaCaractere:
         
         ttk.Button(
             FrameButto,text = 'Converter',
-            command = self.Convertendo
+            command = self.Convertendo,
+            style   = "Accent.TButton"
         ).grid(row=0,column=0,padx=5)
 
         ttk.Button(
             FrameButto,text = 'Voltar',
-            command = self.back
+            command = self.back,
+            style   = "Accent.TButton"
         ).grid(row=0,column=1,padx=5)
 
         FrameButto.pack()
         FrameImage.grid(row=0,column=0)
         FrameInput.grid(row=0,column=1)
 
-    def exit(self):sys.exit()
+    def exit(self):
+        sys.exit()
+
     def back(self):
-        self.master.withdraw()
-        self.Back.deiconify()
+        try:
+            self.convertido.withdraw()
+            self.master.withdraw()
+            self.Back.deiconify()
+
+        except Exception:
+            self.master.withdraw()
+            self.Back.deiconify()
+
+
     def Exemplo(self):
         exemplo = tk.Toplevel()
         exemplo.title('Exemplo')
         Texto = tk.Text(exemplo,width=40,height=10)
         Texto.insert('0.1',chars=texto)
         Texto.pack()
-    
-    def Convertendo(self):
-        ListaPalavras = BinToChar.main(self.Binario.get('1.0',tk.END))
-        TextoResult   = Con.string(ListaPalavras)
 
-        convertido = tk.Toplevel()
-        convertido.title('Resultado')
-        Texto = tk.Text(convertido,width=40,height=10)
+    
+    def Convertendo(self):    
+        ListaPalavras = BinToChar.main(self.Binario.get('1.0','end-1c'))
+        TextoResult   = Con.string(ListaPalavras)
+        self.convertido = tk.Toplevel()
+
+        self.convertido.title('Resultado')
+        Texto = tk.Text(self.convertido,width=40,height=10)
         Texto.insert('0.1',chars=TextoResult)
         Texto.pack()  
         
