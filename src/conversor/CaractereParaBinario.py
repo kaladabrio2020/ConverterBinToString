@@ -1,4 +1,4 @@
-
+import math
 letras_maiu =[
 'A','B','C','D','E','F','G',
 "H","I","J","K","L",'M','N',
@@ -48,42 +48,49 @@ numero_carac_num=[
 53,54,55,56,57]
 
 
+def adicionavazio(listapalavra:list):
+    index = len(listapalavra)-1
 
+    while (index != 0):
+        listapalavra.insert(index,' ')
+        index -=1
+    
+    return listapalavra
 
 def main(texto):#Transformar a palavras em lista de lista com letras
-    lista_r = list()
+    if (texto[len(texto)-1] == '\n'):texto = texto[0:len(texto)-1]
+
     string  = texto.split("\n")
-
-    for i in range(len(string)):
-        new_lis = list()
-        palavra = string[i]
+    new_lis = list()
+    for palavra in string:
         palavra = palavra.split()
+        palavra = adicionavazio(palavra)
+        
+        for letras in palavra:
+            if (letras == ' '):
+                new_lis.append([' '])
+            else:
+                separar = ' '.join(letras)
+                separar = separar.split()
+                new_lis.append(separar)
 
-        for e in range(len(palavra)):
-            letras  = palavra[e] 
-            separar = ' '.join(letras)
-            separar = separar.split()
-            new_lis.append(separar)
-        lista_r.append(new_lis)   
-
-    valor     = TransformandoNumero(lista_r)
+    valor     = TransformandoNumero(new_lis)
     resultado = TransformandoBinario(valor)
     return resultado
 
 
-def TransformandoNumero(lista):#Transforma cada letra em numero 
+def TransformandoNumero(ListaDeLista):#Transforma cada letra em numero 
+    
     new_values = list()
 
-    for i in range(len(lista)):
+    for lista in ListaDeLista:
         nova = list()
-        new_lista = lista[i]
-
-        for e in range(len(new_lista)):
+       
+        for palavra in lista:
             nov_list = list()
-            palavra  = new_lista[e]
 
-            for x in range(len(palavra)):
-                string = palavra[x]
+            for string in palavra:
+                
                 if string == None:
                     nov_list.append([])
 
@@ -135,7 +142,7 @@ def TransformadoBinario(valor):# Transforma em binario
         numero = bin(numero)
         string = str(numero)
         string = string[2::]
-        string = string[:3]+ "."+string[3:]
+       
         new_values.append(string)
     return new_values
-        
+

@@ -7,12 +7,12 @@ def string(binario):
         
         for e in range(len(x)):
             string = x[e]
-            string = "".join(string)
+            string = " ".join(string)
 
             if not(e == len(x)-1):
                 string = string + " "
             texto = texto + string 
-        texto += "\n\n"
+        texto += "\n"
     return texto
 
 
@@ -27,6 +27,6 @@ def bin(binario):
             
             string = x[e]
             string = " ".join(string)
-            texto += string + '\n'
+            texto += string + ' '
     
     return texto

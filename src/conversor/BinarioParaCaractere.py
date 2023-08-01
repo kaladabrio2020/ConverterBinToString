@@ -1,5 +1,5 @@
 from typing import BinaryIO
-from src.conversor.CaractereParaBinario import TransformandoBinario
+#from src.conversor.CaractereParaBinario import TransformandoBinario
 
 
 LetrasMaiusculas = [
@@ -76,7 +76,6 @@ def main(binario):#Transformar a palavras em lista de lista com letras
 
 
 
-
 def TransformandoNumero(lista_r):
     valor = list()
     for i in range(len(lista_r)):
@@ -128,13 +127,10 @@ def TransformandoLetra(numeros):
 def Letrando(lista):
     resultado = None
     letras    = list()
-    for i in range(len(lista)):
-
-        numeros = lista[i]
-
+    for numeros in lista:
         if numeros in NumerosLetrasMaiusculas:
             indice    = NumerosLetrasMaiusculas.index(numeros)
-            resultado = NumerosLetrasMaiusculas[indice]
+            resultado = LetrasMaiusculas[indice]
 
         elif numeros in NumerosLetrasMinusculas:
             indice    = NumerosLetrasMinusculas.index(numeros)
